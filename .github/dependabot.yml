@@ -5,7 +5,44 @@
 
 version: 2
 updates:
-  - package-ecosystem: "" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  # JavaScript/npm - frontend service
+  - package-ecosystem: "npm"
+    directory: "/frontend"
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 10
+
+  # Python/pip - authentication service
+  - package-ecosystem: "pip"
+    directory: "/authn-service"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+
+  # Java/Maven - storage service
+  - package-ecosystem: "maven"
+    directory: "/storage-service"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+
+  # Go modules - gallery service
+  - package-ecosystem: "gomod"
+    directory: "/gallery-service"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+
+  # Docker - devcontainer
+  - package-ecosystem: "docker"
+    directory: "/.devcontainer"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 5
+
+  # GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 5
